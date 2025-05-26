@@ -49,9 +49,9 @@ If you’d like to connect, discuss a project, or just say hi:
 📧 Email: kaus130dbn@gmail.com
 
 📝 License
-This project is licensed under the [MIT License](LICENSE).
+This project is licensed under the MIT License.
 You are free to use, modify, and distribute this code for personal or commercial purposes.
 
 Thanks for stopping by! 🎅
 
-The software is provided as-is, without warranty of any kind. See the LICENSE file for details.
+The software is provided as-is, without warranty of any kind. See the [MIT License](LICENSE) file for details.
