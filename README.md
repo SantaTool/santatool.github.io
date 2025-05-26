@@ -24,6 +24,11 @@ If you're here to contribute, clone the repo and run the site locally.
 ```bash
 git clone https://github.com/SantaTool/santatool.github.io.git
 cd santatool.github.io
+
+yaml
+Copy
+Edit
+
 # Open the index.html file directly in your browser or run a dev server depending on setup
 
 ## 🚀 Running Locally
@@ -34,7 +39,11 @@ Want to explore or contribute? Clone the repo and open `index.html` directly in 
 git clone https://github.com/SantaTool/santatool.github.io.git
 cd santatool.github.io
 open index.html
-If you're using a local dev server (e.g., with live-server, Python, or Node), provide those instructions here.
+
+
+yaml
+Copy
+Edit
 
 👤 About Me
 I'm a developer passionate about building tools, learning in public, and making tech more accessible. I use this site as both a portfolio and playground.
