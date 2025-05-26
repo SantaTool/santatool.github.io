@@ -38,7 +38,7 @@ cd santatool.github.io
 open index.html
 ```
 
-👤 About Me
+# 👤 About Me
 I'm a developer passionate about building tools, learning in public, and making tech more accessible. I use this site as both a portfolio and playground.
 If you’d like to connect, discuss a project, or just say hi:
 
@@ -48,7 +48,7 @@ If you’d like to connect, discuss a project, or just say hi:
 
 📧 Email: kaus130dbn@gmail.com
 
-📝 License
+# 📝 License
 This project is licensed under the MIT License.
 You are free to use, modify, and distribute this code for personal or commercial purposes.
 
