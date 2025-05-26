@@ -44,7 +44,7 @@ If you’d like to connect, discuss a project, or just say hi:
 
 🔗 GitHub: @SantaTool
 
-🌍 Website: santatool.github.io
+🌍 Website: [santatool.github.io](https://santatool.github.io)
 
 📧 Email: kaus130dbn@gmail.com
 
