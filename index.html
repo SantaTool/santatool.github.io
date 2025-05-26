@@ -2,130 +2,638 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Santa Debnath</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SantaTool | Portfolio</title>
+  <link rel="stylesheet" href="css/styles.css" />
   <style>
     :root {
-      --bg-color: #f9f9f9;
-      --primary-color: #333;
-      --accent-color: #007acc;
-      --card-bg: #fff;
-      --text-color: #333;
+      --bg-color: #f8f9fa;
+      --text-color: #212529;
+      --header-bg: #343a40;
+      --header-text: white;
+      --link-color: #007bff;
+      --link-hover: #0056b3;
+      --card-bg: white;
+
+  /* 🌿 Emerald Green for project links (light mode) */
+  --project-link: #2e7d32;
+  --project-link-hover: #1b5e20;
     }
+
+    body.dark {
+      --bg-color: #121212;
+      --text-color: #f1f1f1;
+      --header-bg: #1e1e1e;
+      --header-text: #ffffff;
+      --link-color: #66b2ff;
+      --link-hover: #88ccff;
+      --card-bg: #1e1e1e;
+
+  /* 🌿 Brighter Emerald for dark mode */
+  --project-link: #81c784;
+  --project-link-hover: #66bb6a;
+    }
+
+body.forest {
+  --bg-color: #e8f5e9;
+  --text-color: #1b5e20;
+  --header-bg: #2e7d32;
+  --header-text: white;
+  --link-color: #388e3c;
+  --link-hover: #1b5e20;
+  --card-bg: #ffffff;
+  --project-link: #2e7d32;
+  --project-link-hover: #1b5e20;
+}
+
+body.solarized {
+  --bg-color: #fdf6e3;
+  --text-color: #657b83;
+  --header-bg: #268bd2;
+  --header-text: white;
+  --link-color: #2aa198;
+  --link-hover: #859900;
+  --card-bg: #fff;
+  --project-link: #b58900;
+  --project-link-hover: #cb4b16;
+}
+
+body.ocean {
+  --bg-color: #e0f7fa;
+  --text-color: #004d40;
+  --header-bg: #00796b;
+  --header-text: #e0f2f1;
+  --link-color: #004d40;
+  --link-hover: #00251a;
+  --card-bg: #ffffff;
+  --project-link: #00796b;
+  --project-link-hover: #004d40;
+}
+
+body.midnight {
+  --bg-color: #0d1b2a;       /* Very dark blue */
+  --text-color: #e0e1dd;     /* Soft off-white */
+  --header-bg: #1b263b;      /* Darker blue header */
+  --header-text: #e0e1dd;
+  --link-color: #415a77;     /* Muted blue */
+  --link-hover: #778da9;     /* Lighter blue hover */
+  --card-bg: #1b263b;
+  --project-link: #415a77;
+  --project-link-hover: #778da9;
+}
+
+body.nebula {
+  --bg-color: #2e1a47;       /* Deep purple */
+  --text-color: #dcd6f7;     /* Light lavender */
+  --header-bg: #4b367c;      /* Medium purple header */
+  --header-text: #dcd6f7;
+  --link-color: #7b5fc5;     /* Medium lavender */
+  --link-hover: #b39ddb;     /* Lighter lavender hover */
+  --card-bg: #4b367c;
+  --project-link: #7b5fc5;
+  --project-link-hover: #b39ddb;
+}
 
     body {
       margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background-color: var(--bg-color);
       color: var(--text-color);
+      transition: background-color 0.3s, color 0.3s;
     }
 
     header {
-      background-color: var(--primary-color);
-      color: #fff;
-      padding: 2rem 1rem;
-      text-align: center;
-    }
-
-    header h1 {
-      margin: 0;
-      font-size: 2.5rem;
-    }
-
-    header p {
-      font-size: 1.2rem;
-      margin-top: 0.5rem;
-    }
-
-    .content {
-      padding: 2rem 1rem;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-
-    .content h2 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-      color: var(--primary-color);
-      border-bottom: 2px solid var(--accent-color);
-      display: inline-block;
-    }
-
-    .projects {
+      background: var(--header-bg);
+      color: var(--header-text);
+      padding: 1.2rem 2rem;
       display: flex;
-      flex-wrap: wrap;
-      gap: 1.5rem;
-      margin-top: 1rem;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
     }
 
-    .project {
-      background-color: var(--card-bg);
-      padding: 1.5rem;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-      flex: 1 1 calc(33% - 1rem);
-      min-width: 280px;
-      transition: transform 0.2s;
+    .site-title h1 {
+      margin: 0;
+      font-size: 1.8rem;
+      margin-left: 1.5rem; /* 👈 Aligns with "Fun fact:" */
     }
 
-    .project:hover {
-      transform: translateY(-5px);
+    .site-title p {
+      margin: 0.3rem 0 0;
+      font-size: 0.9rem;
+      color: #ccc;
     }
 
-    .project h3 {
-      margin-top: 0;
-      color: var(--accent-color);
+    .site-title p:first-of-type {
+      margin-left: 1.5rem; /* Extra indentation for first <p> only */
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav li {
+      position: relative;
+      margin-left: 1.5rem;
+    }
+
+    nav a {
+      color: #ddd;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #fff;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      top: 2rem;
+      background-color: #444;
+      padding: 0.5rem 0;
+      min-width: 180px;
+      z-index: 1;
+      border-radius: 4px;
+    }
+
+    .dropdown-content a {
+      display: block;
+      padding: 0.5rem 1rem;
+      color: #ddd;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #555;
+      color: #fff;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+/* Add arrow automatically to dropdown links */
+.dropdown > a::after {
+  content: " ▾";
+  display: inline-block;
+  font-size: 1.0em;
+  margin-left: 0.2em;
+  transition: transform 0.3s ease;
+}
+
+/* Rotate the arrow when dropdown is active */
+.dropdown:hover > a::after {
+  transform: rotate(180deg);
+}
+
+    .dark-toggle {
+      margin-left: 2rem;
+      background: transparent;
+      color: #ccc;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      padding: 0.4rem 0.8rem;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .dark-toggle:hover {
+      background-color: #555;
+      color: white;
+      border-color: white;
+    }
+
+    section {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    h2 {
+      margin-bottom: 1rem;
+      border-bottom: 2px solid #ddd;
+      padding-bottom: 0.5rem;
     }
 
     footer {
-      background-color: var(--primary-color);
-      color: white;
+      background: var(--header-bg);
+      color: var(--header-text);
       text-align: center;
       padding: 1rem;
-      margin-top: 2rem;
+      margin-top: 3rem;
     }
 
     @media (max-width: 768px) {
-      .project {
-        flex: 1 1 100%;
+      header {
+        flex-direction: column;
+        align-items: flex-start;
       }
 
-      header h1 {
-        font-size: 2rem;
+      nav ul {
+        flex-direction: column;
+        margin-top: 1rem;
+        width: 100%;
       }
 
-      .content h2 {
-        font-size: 1.5rem;
+      nav li {
+        margin: 0.5rem 0;
+      }
+
+      .dark-toggle {
+        margin: 1rem 0 0;
+      }
+
+      .profile-image-container {
+        margin: 1rem 0;
       }
     }
+
+.project-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: flex-start;
+}
+
+.project-card {
+  background-color: var(--card-bg);
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  padding: 1.5rem;
+  width: calc(33% - 2rem);
+  min-width: 280px;
+  transition: transform 0.2s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+}
+
+.project-card h3 {
+  margin-top: 0;
+  color: var(--link-color);
+}
+
+.project-card p {
+  margin-bottom: 0.25rem; /* 👈 This line controls the gap between each project description and Link */
+}
+
+.project-card a {
+  display: inline-block;
+  margin-top: 0.25rem;
+/*  color: var(--link-color);*/
+/*  text-decoration: none;*/
+/*  font-weight: bold;*/
+  color: var(--project-link);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.project-card a:hover {
+/*  color: var(--link-hover);*/
+  color: #1565c0; /* Darker on hover */
+  color: var(--project-link-hover);
+}
+
+@media (max-width: 768px) {
+  .project-card {
+    width: 100%;
+  }
+}
+
+/* Container for the nav and theme */
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+/* Left side nav block */
+.nav-links {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Each row inside the nav */
+.nav-row {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 0.3rem;
+}
+
+.nav-row ul {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  gap: 1.5rem;
+}
+
+.nav-row li {
+  margin: 0;
+}
+
+/* Theme selector column */
+.theme-column {
+  align-self: flex-start;
+}
+
+.theme-selector {
+  font-size: 1rem;
+  background-color: var(--header-bg);
+  color: var(--header-text);
+  border: 1px solid var(--header-text);
+  border-radius: 999px; /* 🌟 Rounded pill shape */
+  padding: 0.5rem 1.2rem;
+  font-weight: 500;
+  cursor: pointer;
+  appearance: none;
+  transition: all 0.3s ease;
+  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3E%3Cpath fill='%23fff' d='M2 0L0 2h4zm0 5L0 3h4z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.7rem center;
+  background-size: 0.6rem auto;
+  padding-right: 2rem;
+}
+
+.theme-selector:hover {
+  background-color: var(--link-hover);
+  color: white;
+  border-color: white;
+}
+
+.theme-selector:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--link-color); /* subtle focus ring */
+}
+
+body.dark .theme-selector,
+body.forest .theme-selector,
+body.solarized .theme-selector {
+  color: white;
+  border-color: white;
+}
+
+.blog-post ul {
+  margin-top: 0.5rem;
+  padding-left: 0.5rem;
+  list-style: none;
+}
+
+.blog-post ul li {
+  margin-bottom: 0.11rem;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.profile-image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 1.5rem;
+}
+
+.profile-image {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid var(--header-text);
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.25);
+  transition: transform 0.3s ease;
+}
+
+.profile-image:hover {
+  transform: scale(1.05);
+}
+
+.about-emoji-block {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.about-emoji {
+  font-size: 2.5rem; /* Make the emoji larger */
+  line-height: 1;
+  margin-top: 0.2rem;
+  animation: pulse 1.8s infinite ease-in-out;
+  transform-origin: center;
+}
+
+.about-text p {
+  margin: 0 0 0.3rem 0;
+  font-size: 1rem;
+  line-height: 1.2;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.15);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
   </style>
 </head>
 <body>
+
   <header>
-    <h1>Santa Debnath</h1>
-    <p>💡 Fun fact: I love gaming almost as much as I love coffee ☕</p>
+    <div class="site-title">
+      <h1>Santa Debnath</h1>
+      <p>Developer • Thinker • Lifelong Learner</p>
+      <p>💡 Fun fact: I love gaming almost as much as I love coffee ☕</p>
+    </div>
+
+  <!-- 👤 Profile Image in Center -->
+  <div class="profile-image-container">
+    <img src="profile.jpg" alt="Profile Pic" class="profile-image">
+  </div>
+
+<nav class="nav-container">
+  <!-- Left side: nav links in two rows -->
+  <div class="nav-links">
+    <!-- Top row -->
+    <div class="nav-row">
+      <ul>
+        <li class="dropdown">
+          <a href="#projects">Projects</a>
+          <div class="dropdown-content">
+            <a href="#project1">Online Notepad Application</a>
+            <a href="#project2">Tic Tac Toe Game</a>
+            <a href="#project3">Online Chess Game</a>
+            <a href="#project4">ai Chess Game</a>
+            <!--<a href="#project5">Project 5</a>-->
+            <!--<a href="#project6">Project 6</a>-->
+          </div>
+        </li>
+        <li><a href="#blog">Professional Experience</a></li>
+      </ul>
+    </div>
+
+    <!-- Bottom row -->
+    <div class="nav-row">
+      <ul>
+        <li class="dropdown">
+          <a href="#stay-tuned">Stay Tuned</a>
+          <div class="dropdown-content">
+            <a href="#upcoming1">Online code editor</a>
+            <a href="#upcoming2">Single & Multi-player Chess</a>
+          </div>
+        </li>
+        <li><a href="#hobbies">Hobbies</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Right side: theme selector -->
+  <div class="theme-column">
+    <select id="theme-select" class="theme-selector" onchange="changeTheme(this.value)" aria-label="Theme Selector">
+      <option value="light">☀️ Light (Default)</option>
+      <option value="dark">🌙 Dark Mode</option>
+      <option value="forest">🌿 Forest Vibes</option>
+      <option value="solarized">✨ Radiance Glow</option>
+      <option value="ocean">🌊 Ocean Breeze</option>
+      <option value="midnight">🌌 Midnight Blue</option>
+      <option value="nebula">🌠 Nebula Dream</option>
+    </select>
+  </div>
+</nav>
   </header>
 
-  <main class="content">
-    <h2>Projects</h2>
-    <section class="projects">
-      <article class="project">
-        <h3>Online Notepad</h3>
-        <p>A free, easy-to-use online notepad built for everyone to jot down their thoughts and notes.</p>
-      </article>
-      <article class="project">
-        <h3>Tic Tac Toe</h3>
-        <p>A fun and interactive two-player Tic Tac Toe game made with JavaScript.</p>
-      </article>
-      <article class="project">
-        <h3>Online Chess</h3>
-        <p>A multiplayer online chess platform where two players can compete in real time.</p>
-      </article>
-    </section>
-  </main>
+  <section id="about">
+    <h2>👋 About Me</h2>
+    <div class="about-emoji-block">
+    <div class="about-emoji" aria-hidden="true">🌐</div>
+    <div class="about-text">
+    <p>Hello! I'm Santa Debnath from India — I build tools, write about code, and experiment with technology.</p>
+    <p>This site is my personal space to showcase my work and ideas.</p>
+    </div>
+  </div>
+  </section>
+
+<section id="projects">
+  <h2>🛠 Projects</h2>
+  <div class="project-grid">
+    <div class="project-card">
+      <h3>Online Notepad Application</h3>
+      <p>A free, easy-to-use online notepad built for everyone to jot down their thoughts and notes.</p>
+      <a href="https://github.com/SantaTool/OnlineNotepad" target="_blank">View project →</a>
+    </div>
+    <div class="project-card">
+      <h3>Tic Tac Toe Game</h3>
+      <p>A fun and interactive two-player Tic Tac Toe game made for great timepass.</p>
+      <a href="https://github.com/SantaTool/OnlineTicTacToeGame" target="_blank">View project →</a>
+    </div>
+    <div class="project-card">
+      <h3>Online Chess Game</h3>
+      <p>A multiplayer online chess platform where two players can compete in real time.</p>
+      <a href="https://github.com/SantaTool/FreeOnlineChessGame" target="_blank">View project →</a>
+    </div>
+    <div class="project-card">
+      <h3>ai Chess Game</h3>
+      <p>Challenge the AI and improve your chess skills!</p>
+      <a href="https://github.com/SantaTool/aiChess" target="_blank">View project →</a>
+    </div>
+    <!--<div id="project4"><h3>ai Chess</h3><p>Challenge the AI and improve your chess skills! <a href="#">View project →</a></p></div>-->
+    <!--<div id="project5"><h3>Project 5</h3><p>A brief description of a cool project. <a href="#">View project →</a></p></div>-->
+    <!--<div id="project6"><h3>Project 6</h3><p>Another awesome project worth checking out. <a href="#">View project →</a></p></div>-->
+  </div>
+</section>
+
+  <section id="blog">
+    <h2>📝 Professional Experience</h2>
+    <div class="blog-post">
+      <h3><a href="#">Here is where you can learn more about my professional experience</a></h3>
+      <ul>
+      <li>🛠️ An overview of how made my professional journey upto this point.</li>
+      <li>📋 My key skill-set knowledge and certifications.</li>
+      <li>🔍 Technical details, insights and expertise of my professional career.</li>
+    </ul>
+    </div>
+  </section>
+
+<section id="stay-tuned">
+  <h2>🚀 Stay Tuned for the Things on the Horizon</h2>
+  <p>Exciting new games, tools and projects are currently in development. Keep an eye out!</p>
+
+  <div class="project-grid">
+    <div class="project-card">
+      <h3>Online Code Editor</h3>
+      <p>A web-based editor for writing and testing code in html, css, js in real time.</p>
+      <a href="#upcoming1">Learn more →</a>
+    </div>
+
+    <div class="project-card">
+      <h3>Single & Multi-player Chess</h3>
+      <p>Play chess against friends or AI in this upcoming enhanced version.</p>
+      <a href="#upcoming2">Learn more →</a>
+    </div>
+  </div>
+</section>
+
+<section id="hobbies">
+  <h2>🌿 When I'm Not in Front of the Computer</h2>
+  <p>When I'm away from the keyboard, you'll often find me exploring new games, browsing Internet, brewing the perfect cup of coffee, or diving into a good book. I also enjoy spending time outdoors, whether it's a casual walk or just soaking up nature for some creative inspiration. Family is the heart of everything I do.</p>
+</section>
+
+  <section id="contact">
+    <h2>📬 Contact</h2>
+    <p>Want to reach out or collaborate? Let’s connect!</p>
+    <ul>
+<!--
+      <li>GitHub: <a href="https://github.com/SantaTool">@SantaTool</a></li>
+-->
+      <li>Email: <a href="mailto:kaus130dbn@gmail.com">Santa Debnath</a></li>
+    </ul>
+  </section>
 
   <footer>
-    <p>📧 Contact: <a href="mailto:kaus130dbn@gmail.com" style="color: #ccc;">kaus130dbn@gmail.com</a></p>
+    <p>&copy; 2025 Santa Debnath | All rights reserved | Welcome to my World</p>
   </footer>
+
+  <script>
+  // Apply stored theme on page load
+  window.onload = () => {
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    applyTheme(savedTheme);
+    document.querySelector('.theme-selector').value = savedTheme;
+  };
+
+  function changeTheme(theme) {
+    applyTheme(theme);
+    localStorage.setItem('theme', theme);
+  }
+
+  function applyTheme(theme) {
+    document.body.className = ''; // Reset all themes
+    if (theme !== 'light') {
+      document.body.classList.add(theme);
+    }
+  }
+</script>
+
 </body>
 </html>
