@@ -3,6 +3,35 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Santa Debnath's portfolio — showcasing web development projects, tools, and professional experience.">
+  <meta name="author" content="Santa Debnath">
+
+  <!-- Open Graph for social sharing -->
+  <meta property="og:title" content="SantaTool | Portfolio">
+  <meta property="og:description" content="Explore my projects, tools, and thoughts.">
+  <meta property="og:image" content="https://santatool.github.io/profile.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <!-- Regional and Language Tags for SEO -->
+  <meta name="language" content="en,hi,bn" />
+  <meta http-equiv="Content-Language" content="en" />
+
+  <!-- Structured Data for SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Santa Debnath",
+    "url": "https://santatool.github.io",
+    "email": "mailto:kaus130dbn@gmail.com",
+    "sameAs": [
+      "https://github.com/SantaTool"
+    ],
+    "jobTitle": "Web Developer",
+    "description": "Developer, Thinker, and Lifelong Learner from India building tools and writing about code.",
+    "image": "https://santatool.github.io/profile.jpg"
+  }
+  </script>
   <title>SantaTool | Portfolio</title>
   <link rel="stylesheet" href="css/styles.css" />
   <style>
@@ -351,12 +380,13 @@ body.nebula {
 }
 
 .theme-selector {
-  font-size: 1rem;
+  font-size: 0.8rem;
   background-color: var(--header-bg);
   color: var(--header-text);
   border: 1px solid var(--header-text);
   border-radius: 999px; /* 🌟 Rounded pill shape */
-  padding: 0.5rem 1.2rem;
+  padding: 0.3rem 1.2rem;
+  padding-left: 0.3rem; /* 👈 Add this line to shift text left */
   font-weight: 500;
   cursor: pointer;
   appearance: none;
@@ -365,7 +395,7 @@ body.nebula {
   background-repeat: no-repeat;
   background-position: right 0.7rem center;
   background-size: 0.6rem auto;
-  padding-right: 2rem;
+  padding-right: 1.6rem;
 }
 
 .theme-selector:hover {
@@ -377,6 +407,24 @@ body.nebula {
 .theme-selector:focus {
   outline: none;
   box-shadow: 0 0 0 2px var(--link-color); /* subtle focus ring */
+}
+
+.selector-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-left: auto;
+  padding-right: 1rem;
+  gap: 0.5rem;
+}
+
+.theme-row,
+.language-row {
+  width: fit-content;
+}
+
+.spacing-top {
+  margin-top: 1rem;
 }
 
 body.dark .theme-selector,
@@ -462,13 +510,13 @@ body.solarized .theme-selector {
   <header>
     <div class="site-title">
       <h1>Santa Debnath</h1>
-      <p>Developer • Thinker • Lifelong Learner</p>
-      <p>💡 Fun fact: I love gaming almost as much as I love coffee ☕</p>
+      <p data-i18n="subtitle">Developer • Thinker • Lifelong Learner</p>
+      <p data-i18n="fun-fact">💡 Fun fact: I love gaming almost as much as I love coffee ☕</p>
     </div>
 
   <!-- 👤 Profile Image in Center -->
   <div class="profile-image-container">
-    <img src="profile.jpg" alt="Profile Pic" class="profile-image">
+    <img src="profile.jpg" alt="Profile Pic" class="profile-image" loading="lazy">
   </div>
 
 <nav class="nav-container">
@@ -478,7 +526,7 @@ body.solarized .theme-selector {
     <div class="nav-row">
       <ul>
         <li class="dropdown">
-          <a href="#projects">Projects</a>
+          <a data-i18n="nav-projects" href="#projects">Projects</a>
           <div class="dropdown-content">
             <a href="#project1">Online Notepad Application</a>
             <a href="#project2">Tic Tac Toe Game</a>
@@ -488,7 +536,7 @@ body.solarized .theme-selector {
             <!--<a href="#project6">Project 6</a>-->
           </div>
         </li>
-        <li><a href="#blog">Professional Experience</a></li>
+        <a data-i18n="nav-professional" href="#blog">Professional Experience</a>
       </ul>
     </div>
 
@@ -496,65 +544,77 @@ body.solarized .theme-selector {
     <div class="nav-row">
       <ul>
         <li class="dropdown">
-          <a href="#stay-tuned">Stay Tuned</a>
+          <a data-i18n="nav-stay-tuned" href="#stay-tuned">Stay Tuned</a>
           <div class="dropdown-content">
             <a href="#upcoming1">Online code editor</a>
             <a href="#upcoming2">Single & Multi-player Chess</a>
           </div>
         </li>
-        <li><a href="#hobbies">Hobbies</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a data-i18n="nav-hobbies" href="#hobbies">Hobbies</a></li>
+        <li><a data-i18n="nav-contact" href="#contact">Contact</a></li>
       </ul>
     </div>
   </div>
 
   <!-- Right side: theme selector -->
-  <div class="theme-column">
+<!-- Right side: theme and language selector in a column, two lines -->
+<div class="selector-wrapper">
+  <div class="theme-row">
     <select id="theme-select" class="theme-selector" onchange="changeTheme(this.value)" aria-label="Theme Selector">
-      <option value="light">☀️ Light (Default)</option>
-      <option value="dark">🌙 Dark Mode</option>
-      <option value="forest">🌿 Forest Vibes</option>
-      <option value="solarized">✨ Radiance Glow</option>
-      <option value="ocean">🌊 Ocean Breeze</option>
-      <option value="midnight">🌌 Midnight Blue</option>
-      <option value="nebula">🌠 Nebula Dream</option>
+      <option value="light" data-i18n="theme-light">☀️ Light (Default)</option>
+      <option value="dark" data-i18n="theme-dark">🌙 Dark Mode</option>
+      <option value="forest" data-i18n="theme-forest">🌿 Forest Vibes</option>
+      <option value="solarized" data-i18n="theme-solarized">✨ Radiance Glow</option>
+      <option value="ocean" data-i18n="theme-ocean">🌊 Ocean Breeze</option>
+      <option value="midnight" data-i18n="theme-midnight">🌌 Midnight Blue</option>
+      <option value="nebula" data-i18n="theme-nebula">🌠 Nebula Dream</option>
     </select>
   </div>
+
+  <!-- Add spacing between the two dropdowns if needed -->
+  <div class="language-row">
+  <select id="language-select" class="theme-selector" onchange="changeLanguage(this.value)">
+  <option value="en">English</option>
+  <option value="hi">हिंदी</option>
+  <option value="bn">বাংলা</option>
+    </select>
+  </div>
+</div>
 </nav>
   </header>
 
   <section id="about">
-    <h2>👋 About Me</h2>
+    <h2 data-i18n="about-title">👋 About Me</h2>
     <div class="about-emoji-block">
     <div class="about-emoji" aria-hidden="true">🌐</div>
     <div class="about-text">
-    <p>Hello! I'm Santa Debnath from India — I build tools, write about code, and experiment with technology.</p>
-    <p>This site is my personal space to showcase my work and ideas.</p>
+    <p data-i18n="about-text-1">Hello! I'm Santa Debnath from India — I build tools, write about code, and experiment with technology.</p>
+    <p data-i18n="about-text-2">This site is my personal space to showcase my work and ideas.</p>
     </div>
   </div>
   </section>
 
 <section id="projects">
-  <h2>🛠 Projects</h2>
+  <h2 data-i18n="projects-title">🛠 Projects</h2>
   <div class="project-grid">
     <div class="project-card">
-      <h3>Online Notepad Application</h3>
-      <p>A free, easy-to-use online notepad built for everyone to jot down their thoughts and notes.</p>
-      <a href="https://github.com/SantaTool/OnlineNotepad" target="_blank">View project →</a>
+      <h3 data-i18n="proj1-title">Online Notepad Application</h3>
+      <p data-i18n="proj1-desc">A free, easy-to-use online notepad built for everyone to jot down their thoughts and notes.</p>
+      <a data-i18n="view-project" href="https://github.com/SantaTool/OnlineNotepad" target="_blank">View project →</a>
     </div>
     <div class="project-card">
-      <h3>Tic Tac Toe Game</h3>
-      <p>A fun and interactive two-player Tic Tac Toe game made for great timepass.</p>
+      <h3 data-i18n="proj2-title">Tic Tac Toe Game</h3>
+      <p data-i18n="proj2-desc">A fun and interactive two-player Tic Tac Toe game made for great timepass.</p>
       <a href="https://github.com/SantaTool/OnlineTicTacToeGame" target="_blank">View project →</a>
     </div>
     <div class="project-card">
-      <h3>Online Chess Game</h3>
-      <p>A multiplayer online chess platform where two players can compete in real time.</p>
+      <h3 data-i18n="proj3-title">Online Chess Game</h3>
+      <p data-i18n="proj3-desc">A multiplayer online chess platform where two players can compete in real time.</p>
       <a href="https://github.com/SantaTool/FreeOnlineChessGame" target="_blank">View project →</a>
     </div>
     <div class="project-card">
-      <h3>ai Chess Game</h3>
-      <p>Challenge the AI and improve your chess skills!</p>
+      <h3 data-i18n="proj4-title">ai Chess Game</h3>
+      <p data-i18n="proj4-desc">Challenge the AI and improve your chess skills!</p>
       <a href="https://github.com/SantaTool/aiChess" target="_blank">View project →</a>
     </div>
     <!--<div id="project4"><h3>ai Chess</h3><p>Challenge the AI and improve your chess skills! <a href="#">View project →</a></p></div>-->
@@ -564,54 +624,54 @@ body.solarized .theme-selector {
 </section>
 
   <section id="blog">
-    <h2>📝 Professional Experience</h2>
+    <h2 data-i18n="experience-title">📝 Professional Experience</h2>
     <div class="blog-post">
-      <h3><a href="#">Here is where you can learn more about my professional experience</a></h3>
+      <h3><a href="#" data-i18n="experience-intro">Here is where you can learn more about my professional experience</a></h3>
       <ul>
-      <li>🛠️ An overview of how made my professional journey upto this point.</li>
-      <li>📋 My key skill-set knowledge and certifications.</li>
-      <li>🔍 Technical details, insights and expertise of my professional career.</li>
+      <li data-i18n="experience-point-1">🛠️ An overview of how made my professional journey upto this point.</li>
+      <li data-i18n="experience-point-2">📋 My key skill-set knowledge and certifications.</li>
+      <li data-i18n="experience-point-3">🔍 Technical details, insights and expertise of my professional career.</li>
     </ul>
     </div>
   </section>
 
 <section id="stay-tuned">
-  <h2>🚀 Stay Tuned for the Things on the Horizon</h2>
-  <p>Exciting new games, tools and projects are currently in development. Keep an eye out!</p>
+  <h2 data-i18n="stay-tuned-title">🚀 Stay Tuned for the Things on the Horizon</h2>
+  <p data-i18n="stay-tuned-desc">Exciting new games, tools and projects are currently in development. Keep an eye out!</p>
 
   <div class="project-grid">
     <div class="project-card">
-      <h3>Online Code Editor</h3>
-      <p>A web-based editor for writing and testing code in html, css, js in real time.</p>
-      <a href="#upcoming1">Learn more →</a>
+      <h3 data-i18n="upcoming1-title">Online Code Editor</h3>
+      <p data-i18n="upcoming1-desc">A web-based editor for writing and testing code in html, css, js in real time.</p>
+      <a data-i18n="learn-more" href="#upcoming1">Learn more →</a>
     </div>
 
     <div class="project-card">
-      <h3>Single & Multi-player Chess</h3>
-      <p>Play chess against friends or AI in this upcoming enhanced version.</p>
-      <a href="#upcoming2">Learn more →</a>
+      <h3 data-i18n="upcoming2-title">Single & Multi-player Chess</h3>
+      <p data-i18n="upcoming2-desc">Play chess against friends or AI in this upcoming enhanced version.</p>
+      <a data-i18n="learn-more" href="#upcoming2">Learn more →</a>
     </div>
   </div>
 </section>
 
 <section id="hobbies">
-  <h2>🌿 When I'm Not in Front of the Computer</h2>
-  <p>When I'm away from the keyboard, you'll often find me exploring new games, browsing Internet, brewing the perfect cup of coffee, or diving into a good book. I also enjoy spending time outdoors, whether it's a casual walk or just soaking up nature for some creative inspiration. Family is the heart of everything I do.</p>
+  <h2 data-i18n="hobbies-title">🌿 When I'm Not in Front of the Computer</h2>
+  <p data-i18n="hobbies-desc">When I'm away from the keyboard, you'll often find me exploring new games, browsing Internet, brewing the perfect cup of coffee, or diving into a good book. I also enjoy spending time outdoors, whether it's a casual walk or just soaking up nature for some creative inspiration. Family is the heart of everything I do.</p>
 </section>
 
   <section id="contact">
-    <h2>📬 Contact</h2>
-    <p>Want to reach out or collaborate? Let’s connect!</p>
+    <h2 data-i18n="contact-title">📬 Contact</h2>
+    <p data-i18n="contact-message">Want to reach out or collaborate? Let’s connect!</p>
     <ul>
 <!--
       <li>GitHub: <a href="https://github.com/SantaTool">@SantaTool</a></li>
 -->
-      <li>Email: <a href="mailto:kaus130dbn@gmail.com">Santa Debnath</a></li>
+      <li><span data-i18n="email-label">Email:</span> <a href="mailto:kaus130dbn@gmail.com">Santa Debnath</a></li>
     </ul>
   </section>
 
   <footer>
-    <p>&copy; 2025 Santa Debnath | All rights reserved | Welcome to my World</p>
+    <p data-i18n="footer-text">&copy; 2025 Santa Debnath | All rights reserved | Welcome to my World</p>
   </footer>
 
   <script>
@@ -633,6 +693,187 @@ body.solarized .theme-selector {
       document.body.classList.add(theme);
     }
   }
+</script>
+<script>
+  const translations = {
+    en: {
+      "about-title": "👋 About Me",
+      "about-text-1": "Hello! I'm Santa Debnath from India — I build tools, write about code, and experiment with technology.",
+      "about-text-2": "This site is my personal space to showcase my work and ideas.",
+      "projects-title": "🛠 Projects",
+      "contact-title": "📬 Contact",
+      "contact-message": "Want to reach out or collaborate? Let’s connect!",
+      "stay-tuned-title": "🚀 Stay Tuned for the Things on the Horizon",
+      "stay-tuned-desc": "Exciting new games, tools and projects are currently in development. Keep an eye out!",
+      "hobbies-title": "🌿 When I'm Not in Front of the Computer",    
+      "hobbies-desc": "When I'm away from the keyboard, you'll often find me exploring new games, browsing Internet, brewing the perfect cup of coffee, or diving into a good bookgood book. I also enjoy spending time outdoors, whether it's a casual walk or just soaking up nature for some creative inspiration. Family is the heart of everything I do.",
+      "subtitle": "Developer • Thinker • Lifelong Learner",
+      "fun-fact": "💡 Fun fact: I love gaming almost as much as I love coffee ☕",
+      "proj1-title": "Online Notepad Application",
+      "proj1-desc": "A free, easy-to-use online notepad built for everyone to jot down their thoughts and notes.",
+      "proj2-title": "Tic Tac Toe Game",
+      "proj2-desc": "A fun and interactive two-player Tic Tac Toe game made for great timepass.",
+      "proj3-title": "Online Chess Game",
+      "proj3-desc": "A multiplayer online chess platform where two players can compete in real time.",
+      "proj4-title": "ai Chess Game",
+      "proj4-desc": "Challenge the AI and improve your chess skills!",
+      "upcoming1-title": "Online Code Editor",
+      "upcoming1-desc": "A web-based editor for writing and testing code in html, css, js in real time.",
+      "upcoming2-title": "Single & Multi-player Chess",
+      "upcoming2-desc": "Play chess against friends or AI in this upcoming enhanced version.",
+      "view-project": "View project →",
+      "learn-more": "Learn more →",
+      "experience-title": "📝 Professional Experience",
+      "experience-intro": "Here is where you can learn more about my professional experience",
+      "experience-point-1": "🛠️ An overview of how made my professional journey upto this point.",
+      "experience-point-2": "📋 My key skill-set knowledge and certifications.",
+      "experience-point-3": "🔍 Technical details, insights and expertise of my professional career.",
+      "footer-text": "© 2025 Santa Debnath | All rights reserved | Welcome to my World",
+      "theme-light": "☀️ Light (Default)",
+      "theme-dark": "🌙 Dark Mode",
+      "theme-forest": "🌿 Forest Vibes",
+      "theme-solarized": "✨ Radiance Glow",
+      "theme-ocean": "🌊 Ocean Breeze",
+      "theme-midnight": "🌌 Midnight Blue",
+      "theme-nebula": "🌠 Nebula Dream",
+      "email-label": "Email:",
+      "nav-projects": "Projects",
+      "nav-professional": "Professional Experience",
+      "nav-stay-tuned": "Stay Tuned",
+      "nav-hobbies": "Hobbies",
+      "nav-contact": "Contact"
+      // Add more keys as needed
+    },
+    hi: {
+      "about-title": "👋 मेरे बारे में",
+      "about-text-1": "नमस्ते! मैं संता देबनाथ हूँ भारत से — मैं टूल्स बनाता हूँ, कोड पर लिखता हूँ, और तकनीक के साथ प्रयोग करता हूँ।",
+      "about-text-2": "यह साइट मेरे काम और विचारों को दिखाने के लिए मेरी व्यक्तिगत जगह है।",
+      "projects-title": "🛠 परियोजनाएँ",
+      "contact-title": "📬 संपर्क करें",
+      "contact-message": "क्या आप मुझसे संपर्क करना चाहते हैं या सहयोग करना चाहते हैं? आइए जुड़ें!",
+      "stay-tuned-title": "🚀 आगे आने वाली चीज़ों पर नज़र रखें",
+      "stay-tuned-desc": "नए खेल, उपकरण और प्रोजेक्ट्स विकास में हैं। नज़र बनाए रखें!",
+      "hobbies-title": "🌿 जब मैं कंप्यूटर के सामने नहीं होता",    
+      "hobbies-desc": "जब मैं कीबोर्ड से दूर होता हूँ, तो अक्सर आप मुझे नए गेम्स खोजते हुए, इंटरनेट ब्राउज़ करते, परफेक्ट कॉफी बनाते या किसी अच्छी किताब में डूबे हुए पाएँगे। मुझे बाहर समय बिताना भी पसंद है — चाहे वह एक हल्की टहल हो या बस प्रकृति की प्रेरणा को महसूस करना हो। परिवार मेरे हर काम का केंद्र है।",
+      "subtitle": "डेवलपर • विचारक • आजीवन सीखने वाला",
+      "fun-fact": "💡 मज़ेदार तथ्य: मुझे गेमिंग उतना ही पसंद है जितना कि कॉफी ☕",
+      "proj1-title": "ऑनलाइन नोटपैड एप्लिकेशन",
+      "proj1-desc": "एक सरल और मुफ़्त ऑनलाइन नोटपैड, सभी के लिए।",
+      "proj2-title": "टिक टैक टो गेम",
+      "proj2-desc": "दो खिलाड़ियों के लिए एक मज़ेदार टिक टैक टो गेम, समय बिताने के लिए आदर्श।",
+      "proj3-title": "ऑनलाइन शतरंज खेल",
+      "proj3-desc": "एक मल्टीप्लेयर ऑनलाइन शतरंज प्लेटफार्म जहाँ दो खिलाड़ी आमने-सामने खेल सकते हैं।",
+      "proj4-title": "एआई शतरंज खेल",
+      "proj4-desc": "AI के खिलाफ शतरंज खेलें और अपनी स्किल को सुधारें।",
+      "upcoming1-title": "ऑनलाइन कोड एडिटर",
+      "upcoming1-desc": "HTML, CSS और JS कोड को रियल टाइम में लिखने और टेस्ट करने के लिए एक वेब-आधारित एडिटर।",
+      "upcoming2-title": "सिंगल और मल्टी-प्लेयर शतरंज",
+      "upcoming2-desc": "AI या दोस्तों के खिलाफ खेलने के लिए एक नया शतरंज अनुभव जल्द आ रहा है।",
+      "view-project": "प्रोजेक्ट देखें →",
+      "learn-more": "और जानें →",
+      "experience-title": "📝 पेशेवर अनुभव",
+      "experience-intro": "यहाँ आप मेरे पेशेवर अनुभव के बारे में जान सकते हैं",
+      "experience-point-1": "🛠️ अब तक के मेरे करियर का संक्षिप्त विवरण।",
+      "experience-point-2": "📋 मेरी मुख्य स्किल्स और सर्टिफिकेशन।",
+      "experience-point-3": "🔍 तकनीकी जानकारी, अनुभव और विशेषज्ञता।",
+      "footer-text": "© 2025 संता देबनाथ | सर्वाधिकार सुरक्षित | मेरी दुनिया में आपका स्वागत है",
+      "theme-light": "☀️ लाइट (डिफ़ॉल्ट)",
+      "theme-dark": "🌙 डार्क मोड",
+      "theme-forest": "🌿 फॉरेस्ट वाइब्स",
+      "theme-solarized": "✨ चमकदार प्रकाश",
+      "theme-ocean": "🌊 सागर की हवा",
+      "theme-midnight": "🌌 आधी रात का नीला",
+      "theme-nebula": "🌠 नीहारिका सपना",
+      "email-label": "ईमेल:",
+      "nav-projects": "परियोजनाएँ",
+      "nav-professional": "पेशेवर अनुभव",
+      "nav-stay-tuned": "बने रहें",
+      "nav-hobbies": "शौक",
+      "nav-contact": "संपर्क करें",
+    },
+    bn: {
+      "about-title": "👋 আমার সম্পর্কে",
+      "about-text-1": "হ্যালো! আমি সান্তা দেবনাথ, ভারত থেকে — আমি টুল বানাই, কোড নিয়ে লিখি, এবং প্রযুক্তির সঙ্গে পরীক্ষা করি।",
+      "about-text-2": "এই সাইটটি আমার কাজ ও ভাবনার প্রদর্শনী।",
+      "projects-title": "🛠 প্রজেক্টসমূহ",
+      "contact-title": "📬 যোগাযোগ",
+      "contact-message": "যোগাযোগ বা সহযোগিতা করতে চান? চলুন কথা বলি!",
+      "stay-tuned-title": "🚀 সামনে আসছে যা কিছু",
+      "stay-tuned-desc": "নতুন গেম, টুলস এবং প্রজেক্ট আসছে। চোখ রাখুন!",
+      "hobbies-title": "🌿 যখন আমি কম্পিউটারের সামনে থাকি না",    
+      "hobbies-desc": "যখন আমি কীবোর্ড থেকে দূরে থাকি, তখন আমি সাধারণত নতুন গেম খুঁজি, ইন্টারনেট ব্রাউজ করতে, নিখুঁত কফি বানাই বা একটি ভালো বই পড়ি। আমি বাইরে সময় কাটাতেও পছন্দ করি — হালকা হাঁটা হোক বা শুধু প্রকৃতির অনুপ্রেরণা গ্রহণ করা। পরিবারই আমার সবকিছুর কেন্দ্র।",
+      "subtitle": "ডেভেলপার • চিন্তাশীল • আজীবন শিক্ষার্থী",
+      "fun-fact": "💡 মজার তথ্য: আমি যতটা গেমিং পছন্দ করি, ততটাই কফিও ভালোবাসি ☕",
+      "proj1-title": "অনলাইন নোটপ্যাড অ্যাপ্লিকেশন",
+      "proj1-desc": "সবাইয়ের জন্য একটি সহজ ও ব্যবহারযোগ্য অনলাইন নোটপ্যাড।",
+      "proj2-title": "টিক ট্যাক টো গেম",
+      "proj2-desc": "দুজনের জন্য একটি মজার টিক ট্যাক টো গেম — সময় কাটানোর দারুণ উপায়।",
+      "proj3-title": "অনলাইন দাবা খেলা",
+      "proj3-desc": "একটি মাল্টিপ্লেয়ার দাবা প্ল্যাটফর্ম যেখানে আপনি প্রতিদ্বন্দ্বীকে রিয়েল-টাইমে চ্যালেঞ্জ করতে পারেন।",
+      "proj4-title": "এআই দাবা খেলা",
+      "proj4-desc": "এআই-এর বিরুদ্ধে দাবা খেলুন এবং নিজের স্কিল উন্নত করুন।",
+      "upcoming1-title": "অনলাইন কোড এডিটর",
+      "upcoming1-desc": "এই ওয়েব-ভিত্তিক এডিটরে আপনি রিয়েল টাইমে HTML, CSS এবং JS কোড লিখে পরীক্ষা করতে পারবেন।",
+      "upcoming2-title": "সিঙ্গেল ও মাল্টি-প্লেয়ার দাবা",
+      "upcoming2-desc": "বন্ধু বা AI-এর বিরুদ্ধে দাবা খেলার একটি উন্নত সংস্করণ আসছে।",
+      "view-project": "প্রজেক্ট দেখুন →",
+      "learn-more": "আরও জানুন →",
+      "experience-title": "📝 পেশাগত অভিজ্ঞতা",
+      "experience-intro": "এখানে আপনি আমার পেশাগত অভিজ্ঞতা সম্পর্কে জানতে পারবেন",
+      "experience-point-1": "🛠️ আমি কীভাবে এই পর্যায়ে পৌঁছালাম তার সংক্ষিপ্ত বিবরণ।",
+      "experience-point-2": "📋 আমার মূল দক্ষতা ও সার্টিফিকেশন।",
+      "experience-point-3": "🔍 প্রযুক্তিগত বিশদ, অন্তর্দৃষ্টি এবং বিশেষজ্ঞতা।",
+      "footer-text": "© 2025 সান্তা দেবনাথ | সমস্ত অধিকার সংরক্ষিত | আমার জগতে স্বাগতম",
+      "theme-light": "☀️ লাইট (ডিফল্ট)",
+      "theme-dark": "🌙 ডার্ক মোড",
+      "theme-forest": "🌿 ফরেস্ট ভাইবস",
+      "theme-solarized": "✨ দীপ্তিময় আভা",
+      "theme-ocean": "🌊 মহাসাগরের বাতাস",
+      "theme-midnight": "🌌 মধ্যরাতের নীল",
+      "theme-nebula": "🌠 নীহারিকা স্বপ্ন",
+      "email-label": "ইমেইল:",
+      "nav-projects": "প্রজেক্টসমূহ",
+      "nav-professional": "পেশাগত অভিজ্ঞতা",
+      "nav-stay-tuned": "সামনে আসছে",
+      "nav-hobbies": "শখ",
+      "nav-contact": "যোগাযোগ",
+    }
+  };
+</script>
+<script>
+  function changeLanguage(lang) {
+    localStorage.setItem('language', lang);
+    applyLanguage(lang);
+  }
+
+  function applyLanguage(lang) {
+    const elements = document.querySelectorAll('[data-i18n]');
+    elements.forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      if (translations[lang] && translations[lang][key]) {
+        el.textContent = translations[lang][key];
+      }
+    });
+  }
+
+function applyTranslations(lang) {
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (translations[lang] && translations[lang][key]) {
+      el.textContent = translations[lang][key];
+    }
+  });
+}
+
+  window.onload = () => {
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    applyTheme(savedTheme);
+    document.querySelector('.theme-selector').value = savedTheme;
+
+    const savedLang = localStorage.getItem('language') || 'en';
+    document.getElementById('language-select').value = savedLang;
+    applyLanguage(savedLang);
+  };
 </script>
 
 </body>
